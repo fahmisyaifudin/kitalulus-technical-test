@@ -1,0 +1,41 @@
+{
+  "name": "kitalulus-test",
+  "version": "0.0.1",
+  "description": "kitalulus-test",
+  "main": "index.js",
+  "author": "Fahmi Syaifudin",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "node -r esm index.js",
+    "devdebug": "nodemon -L --ignore 'node_modules/* ' --exec node --inspect=0.0.0.0 -r esm index.js",
+    "dev": "nodemon -L --ignore 'node_modules/* ' --exec node -r esm index.js",
+    "sequelize": "./node_modules/sequelize-cli/lib/sequelize --options-path=database/config/options.js",
+    "migrate": "npm run sequelize db:migrate",
+    "undomigrate": "npm run sequelize db:migrate:undo",
+    "seedall": "npm run sequelize db:seed:all",
+    "makemigration": "node ./node_modules/sequelize-auto-migrations/bin/makemigration.js --models-path ./database/models --migrations-path ./database/migrations",
+    "createdb": "npm run sequelize db:create",
+    "refreshdb": "node -r esm ./utils/db.js && npm run seedall"
+  },
+  "dependencies": {
+    "@hapi/boom": "^8.0.1",
+    "@hapi/joi": "^16.1.8",
+    "axios": "^0.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "pg": "^7.12.0",
+    "pg-hstore": "^2.3.3",
+    "pg-promise": "^10.5.2",
+    "sequelize": "^5.21.7",
+    "sequelize-auto-migrations": "github:scimonster/sequelize-auto-migrations",
+    "sequelize-paginate": "^1.1.6",
+    "uuidv4": "^4.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3",
+    "sequelize-cli": "^6.2.0"
+  }
+}
