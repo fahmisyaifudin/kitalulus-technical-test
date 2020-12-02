@@ -30,8 +30,9 @@
     "pg-hstore": "^2.3.3",
     "pg-promise": "^10.5.2",
     "sequelize": "^5.21.7",
-    "sequelize-auto-migrations": "github:scimonster/sequelize-auto-migrations",
+    "sequelize-auto-migrations": "https://github.com/Scimonster/sequelize-auto-migrations.git",
     "sequelize-paginate": "^1.1.6",
+    "swagger-ui-express": "^4.1.5",
     "uuidv4": "^4.0.0"
   },
   "devDependencies": {

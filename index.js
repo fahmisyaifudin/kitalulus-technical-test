@@ -4,6 +4,8 @@ const morgan = require('morgan')
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger/openapi.json');
 
 const app = express();
 // use cors
@@ -18,6 +20,7 @@ app.use(morgan(function (tokens, req, res) {
       tokens['response-time'](req, res), 'ms'
     ].join(' ')
 }));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json({ type: 'application/*+json' }));

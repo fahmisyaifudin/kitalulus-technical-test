@@ -1,0 +1,140 @@
+{
+  "openapi": "3.0.0",
+  "host": "localhost:8080",
+  "info": {
+    "title": "Kitalulus Technical Test",
+    "version": "0.1"
+  },
+  "paths": {
+    "/api/v1/question": {
+      "get": {
+        "tags": [
+          "Question"
+        ],
+        "description": "Get All Question with paginate",
+        "operationId": "Question::get",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Question"
+        ],
+        "operationId": "Question::create",
+        "requestBody": {
+          "content": {
+            "json": {
+              "schema": {
+                "required": [
+                  "question",
+                  "createdBy"
+                ],
+                "properties": {
+                  "question": {
+                    "type": "string",
+                    "example": "Question 1"
+                  },
+                  "createdBy": {
+                    "type": "string",
+                    "example": "admin"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/question/{uuid}": {
+      "get": {
+        "tags": [
+          "Question"
+        ],
+        "description": "Get Product By Id",
+        "operationId": "Question::getById",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Question"
+        ],
+        "description": "Update Question",
+        "operationId": "Question::update",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "json": {
+              "schema": {
+                "required": [
+                  "question",
+                  "updatedBy"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Question 1"
+                  },
+                  "updatedBy": {
+                    "type": "string",
+                    "example": "admin"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Question"
+        ],
+        "description": "Delete Question",
+        "operationId": "Question::delete",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  }
+}
